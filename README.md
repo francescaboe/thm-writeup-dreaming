@@ -1,5 +1,7 @@
 # THM write-up - [Dreaming](https://tryhackme.com/r/room/dreaming)
 
+A TryHackMe CTF
+
 ![intro](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241218143850.png)
 
 ## The intro
@@ -8,13 +10,16 @@ Difficult level: **Easy**;
 
 Estimated time to complete: **45** could be minutes, could be years;
 
-Let's see what we're working with, not much at all to be honest, but who needs long introductions?
+Let's see what we're working with:
 
 _Solve the riddle that dreams have woven._
-Mysterious, don't we like riddles, and we do like dreaming.
+
+Mysterious.. but don't we like riddles, and we do like dreaming?
 
 _While the king of dreams was imprisoned, his home fell into ruins.
 Can you help Sandman restore his kingdom?_
+
+Not much at all to be honest, but who needs long introductions? Where is the fun otherwise
 
 Let's go save the kingdom and maybe turn it into a democracy.
 
