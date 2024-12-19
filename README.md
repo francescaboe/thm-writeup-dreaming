@@ -1,10 +1,13 @@
 # THM write-up - [Dreaming](https://tryhackme.com/r/room/dreaming)
 
-![[Pasted image 20241218143850.png]]
+![intro](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241218143850.png)
 
 ## The intro
 Difficult level: **Easy**
+
 Estimated time to complete: **45 mins** 
+
+
 
 Let's see what we're working with, not much at all to be honest, but who needs long introductions?
 
