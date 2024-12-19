@@ -35,9 +35,9 @@ and we don't have time to be stealthy (`-T4`)
 
 ![namp](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219104314.png)
 
-Would you look at that, we got ourselves an open http port and an ssh one, let's see what's at that address from our bowsers.
+Would you look at that, we got ourselves an open http port and an ssh one, let's see what's at that address from our browser.
 
-Navigate to `<target-ip>` from firefox: looks like we are dealing with an Apache2 server, let's keep it in mind for the future.
+Navigate to `<target-ip>` from firefox: looks like we are dealing with an Apache2 server, could be useful, or maybe not!
 
 ![apache2](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219104744.png)
 
@@ -51,7 +51,7 @@ to our address `-u <target-ip>`
 
 use the directory list provided `-w <provided-list>`
 
-and follow the redirections `-r`
+and follow the redirections, becuase we got no time for those `302` codes `-r`
 
 Looks like we got an `/app` directory, let's see what's there
 
@@ -82,7 +82,7 @@ Following the exploit instructions let's click on "admin" and land on the login 
 
 let's `hydra` the `fuzz` out of this:
 
-`hydra -l admin -P /usr/share/wordlists/rockyou.txt <target-ip> http-post-form "/app/pluck-4.7.13/login.php:cont1=^PASS^&bogus=&submit=Log+in:F=Invalid" -V`
+`hydra -l admin -P /usr/share/wordlists/rockyou.txt <target-ip> http-post-form "/app/pluck-4.7.13/login.php:cont1=^PASS^&bogus=&submit=Log+in:F=Password incorrect" -V`
 
 ![cracked](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241218162034.png)
 
@@ -132,7 +132,7 @@ Now more reconnaissance, or, as I like to call it, increasingly desperate search
 
 cool so we have lucien, death and morpheus, incidentally the owners of the flags we need to find.
 
-`cat /home/lucien/lucien_flag` > permission denied
+`cat /home/lucien/lucien_flag.txt` > permission denied
 
 and same goes for the other two.
 
@@ -164,9 +164,9 @@ _THM{TH3_L1BR4R14N}_
 
 2. **What is the Death Flag?**
 
-Now that we have a password and we know we have an `ssh` port open, let's try and get ourselves a fully functioning terminal, this reverse-shell served us well but it's time to upgrade: from a new terminal tab
+Now that we have a password and we know we have an `ssh` port open, let's try and get ourselves a fully functioning terminal, this reverse-shell served us well but it's time to upgrade
 
-`ssh lucien@<target-ip>`
+from a new terminal tab: `ssh lucien@<target-ip>`
 
 and it worked!
 
