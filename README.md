@@ -88,7 +88,7 @@ Ok we are in, let's follow the exploit: we can go to pages > manage files and up
 
 and we see
 
-![[Pasted image 20241219110904.png]]
+![upload file](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219110904.png)
 
 let's get our usual php shell from the attack box, or ask AI to create one, whatever is easier:
 
@@ -106,11 +106,11 @@ let's also start ourselves an netcat listener at our `666` port
 
 Now, let's navigate to the shell, we do so by clicking on the lens:
 
-![[Pasted image 20241219112116.png]]
+![uploaded file](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219112116.png)
 
 Aaaand we're in!
 
-![[Pasted image 20241219111823.png]]
+![ncat](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219111823.png)
 
 But this shell is lame, let's upgrade it and make our lives a bit easier:
 
@@ -122,7 +122,7 @@ Now more reconnaissance, or, as I like to call it, increasingly desperate search
 
 `cat /etc/passwd`
 
-![[Pasted image 20241218235644.png]]
+![users](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241218235644.png)
 
 cool so we have lucien, death and morpheus, incidentally the owners of the flags we need to find.
 
@@ -134,15 +134,15 @@ One thing is clear, we need to **ESCALATE PRIVILEDGE**.
 
 Let's keep looking: aimlessly go around the server and look for anything interesting, despair, pray the cybersecurity Gods, curse the cybersecurity gods, talk to the AI, google franticly, ask for a hint, go take a nap.
 
-![[Pasted image 20241219112959.png]]
+![5 hours later](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219112959.png)
 
 `ls -la opt`
 
-![[Pasted image 20241219113103.png]]
+![opt](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219113103.png)
 
 curious, 2 python scripts we have reading permissions for: let's read `test.py`, ah-ha!
 
-![[Pasted image 20241219113454.png]]
+![cat test](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219113454.png)
 
 if it isn't a password for `lucien`!
 
@@ -173,13 +173,13 @@ User lucien may run the following commands on dreaming:
 
 if we `ls -l` in `death`'s folder we see
 
-![[Pasted image 20241219114207.png]]
+![deathls](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219114207.png)
 
 so we can use python to run this getDreams.py script as `death`, but we can't edit it nor read.
 
 `sudo -u death /usr/bin/python3 /home/death/getDreams.py`
 
-![[Pasted image 20241219000931.png]]
+![getDreams](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219000931.png)
 
 Nothing interesting here, but I just remembered, wasn't there a python script with the same name in `/opt` that we had reading permissions for? let's go see what is the deal with that.
 
