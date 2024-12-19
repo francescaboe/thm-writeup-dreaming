@@ -27,13 +27,13 @@ because no port left behind (`-p-`)
 
 and we don't have time to be stealthy (`-T4`)
 
-![intro](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%20241219104314.png)
+![namp](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219104314.png)
 
 Would you look at that, we got ourselves an open http port and an ssh one, let's see what's at that address from our bowsers.
 
 Navigate to `<target-ip>` from firefox: looks like we are dealing with an Apache2 server, let's keep it in mind for the future.
 
-![[Pasted image 20241219104744.png]]
+![apache2](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219104744.png)
 
 Meanwhile let's see what else we can find, `gobuster` to the rescue!
 
@@ -49,13 +49,13 @@ and follow the redirections `-r`
 
 Looks like we got an `/app` directory, let's see what's there
 
-![[Pasted image 20241219105402.png]]
+![folder](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219105402.png)
 
 `pluck-4.7.13` what's that? let's google it!
 
 mmh first results look promising, who doesn't like [Remote Code execution vulnerability](https://www.exploit-db.com/exploits/49909)?
 
-![[Pasted image 20241219105634.png]]
+![exploit](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219105634.png)
 
 ```
 Description:
@@ -68,23 +68,23 @@ Let's go!
 
 Firstly, let's go into the pluck folder:
 
-![[Pasted image 20241219105924.png]]
+![homepage](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219105924.png)
 
 Following the exploit instructions let's click on "admin" and land on the login page, this is what we find: a form input for a password, no username, a commented `bogus` input?
 
-![[Pasted image 20241218161831.png]]
+![login](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241218161831.png)
 
 let's `hydra` the `fuzz` out of this:
 
 `hydra -l admin -P /usr/share/wordlists/rockyou.txt <target-ip> http-post-form "/app/pluck-4.7.13/login.php:cont1=^PASS^&bogus=&submit=Log+in:F=Invalid" -V`
 
-![[Pasted image 20241218162034.png]]
+![cracked](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241218162034.png)
 
 password is `password`, I could have guessed that!
 
 Ok we are in, let's follow the exploit: we can go to pages > manage files and upload a shell
 
-![[Pasted image 20241219110642.png]]
+![manage files](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%2020241219110642.png)
 
 and we see
 
