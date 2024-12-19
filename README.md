@@ -14,7 +14,7 @@ Let's see what we're working with:
 
 _Solve the riddle that dreams have woven._
 
-Mysterious.. but don't we like riddles, and we do like dreaming?
+Mysterious.. but don't we like riddles, and don't we like dreaming?
 
 _While the king of dreams was imprisoned, his home fell into ruins.
 Can you help Sandman restore his kingdom?_
