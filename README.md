@@ -23,7 +23,7 @@ Let's start with some good old Reconnaissance with the OG `nmap`
 `nmap -p- -T4 <target-ip>`
 because no port left behind (`-p-`)
 and we don't have time to be stealthy (`-T4`)
-![[Pasted image 20241219104314.png]]
+![intro](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/assets/Pasted%20image%20241219104314.png)
 Would you look at that, we got ourselves an open http port and an ssh one, let's see what's at that address from our bowsers.
 
 Navigate to `<target-ip>` from firefox: looks like we are dealing with an Apache2 server, let's keep it in mind for the future.
