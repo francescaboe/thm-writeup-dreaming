@@ -8,7 +8,7 @@ A TryHackMe CTF
 
 Difficult level: **Easy**;
 
-Estimated time to complete: **45** could be minutes, could be years;
+Estimated time to complete: **45**, could be minutes, could be years;
 
 Let's see what we're working with:
 
