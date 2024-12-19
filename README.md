@@ -310,4 +310,6 @@ what are the chances that death's DB password and the ssh password are the same?
 woop woop we have now assumed death's identity!
 
 I've taken you this far, it's now time for you to go out on your own and find the 3rd and final flag, I know you can do it!
-As for me, I think I deserve a little Dreaming of my own
+As for me, I think I deserve a little Dreaming of my own.
+
+![old](https://github.com/francescaboe/thm-writeup-dreaming/blob/main/Pasted%20image%2020241219155342.png)
